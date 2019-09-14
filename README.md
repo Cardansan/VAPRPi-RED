@@ -1,2 +1,2 @@
 # VAPRPi-RED
-## Vehículo Autónomo Personalizable Raspberry Pi Node-RED
+## _Vehículo Autónomo Personalizable con Raspberry Pi y Node-RED_
