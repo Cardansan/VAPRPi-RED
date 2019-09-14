@@ -4,4 +4,4 @@
 
 
 
-Desarrollo por Inventoteca.
+Desarrollado por Inventoteca.
