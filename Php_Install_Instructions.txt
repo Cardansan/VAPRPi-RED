@@ -1,0 +1,35 @@
+Introduction
+On my last tutorial, I showed how to use Ansible to automate the setup of a Web Server running PHP 7 on a Raspberry Pi Zero W (running Raspbian). I confess I was/am a bit outdated on what’s going in the PHP world nowadays, so I wasn’t quite sure of which version is the most recommended or compatible with the newest stuff. After digging around a bit in order to perform some benchmarks and just general research on the web server setup, I figured I’d need PHP 7.1 to get the top frameworks running on their newest versions. This tutorial will show you how to install PHP 7.1 on Raspbian Stretch, for a Raspberry Pi Zero W (it should work fine for other models of Raspberry Pi too).
+
+Requirements
+Raspberry Pi Zero W running Raspbian Stretch with network properly set up
+Installation Steps
+Step 1: Update the packages list
+The default package repositories that come with Raspbian don’t contain PHP 7.1. The package is available, however, in the next-stable Debian repositories – also known as the “testing” repository, containing all the newest packages that should be included in the next stable release, codenamed buster. We’ll need to update the sources list in order to change the main repo from stretch, which is the current-stable, to buster, which is the next-stable / testing repository.
+
+Edit the file /etc/apt/sources.list with your text editor of choice:
+
+sudo nano /etc/apt/sources.list
+Now change the source repo from “stretch” to “buster”. The line should look similar to this:
+
+deb http://raspbian.raspberrypi.org/raspbian/ buster main contrib non-free rpi
+Save and close the file.
+
+Step 2: Update the System
+Since this is a different package repository (with newer versions of software you’re currently using), it’s important to perform a full system update afterwards, due to compatibility. More information can be found here.
+
+Run the following (first it will update the packages list, and then upgrade the system)
+
+sudo apt-get update && sudo apt-get upgrade
+Step 3: Remove any previous PHP versions
+If you had PHP installed before, which was my case, it’s a good idea to remove any old packages beforehand:
+
+sudo apt-get remove '^php.*'
+Step 4: Install PHP 7.1
+If you’re using the FPM version like I do (with Nginx for instance), you should install the package php7.1-fpm (and probably php7.1-cli as well), and don’t forget to restart nginx afterwards.
+
+sudo apt-get install php7.1-fpm php7.1-cli
+Otherwise, I’m fairly certain you should just go for the metapackage php7.1:
+
+sudo apt-get install php7.1
+And that’s all. 
