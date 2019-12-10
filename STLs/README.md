@@ -1,4 +1,4 @@
-#Lista de piezas
+# Lista de piezas
 
 + Defensa
 + Salpicaderas delanteras
