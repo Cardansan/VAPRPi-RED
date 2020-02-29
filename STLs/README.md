@@ -12,6 +12,6 @@
 + Torreta
 + Techo
 + Porta pila
-+ Luces traseras
++ Luces traseras*
 + Cubrellanta delantera*
 + Cubrellanta trasera*
